@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Home from './pages/Home'
+import CityList from './pages/CityList'
+import Map from './pages/Map'
+import NotFound from './pages/NotFound';
 
+// 路由
+import { BrowserRouter as Router, Route,Switch,Redirect } from 'react-router-dom'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    <div className="app">
+        <Switch>
+        {/**路由重定向 */}
+        <Redirect  exact from="/" to="/home"/>
+        <Route path="/home" component={Home} />
+        <Route path="/cityList" component={CityList} />
+        <Route path="/map" component={Map} />
+        {/**配置404页面 */}
+        <Route component={NotFound}/>
+        </Switch>
+        </div>
+    </Router>
   );
 }
 
