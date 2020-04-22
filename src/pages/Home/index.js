@@ -19,8 +19,8 @@ class Home extends Component {
         selectedTab: this.props.location.pathname
       };
   
-      //渲染TabBar组件
-      renderTabBar = () =>{
+    //渲染TabBar组件
+    renderTabBar = () =>{
         return(
           <TabBar
              unselectedTintColor="#949494"
@@ -44,13 +44,12 @@ class Home extends Component {
                  this.props.history.push(item.path)
                }}
                data-seed="logId" />
-
                 )
                })
                 }
         </TabBar>
         )
-      }
+    }
 
     render() {
       // console.log(this.props)
